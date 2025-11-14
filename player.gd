@@ -6,6 +6,11 @@ var screen_size # Peliruudun koko
 # Tämä kutsutaan, kun solmu luodaan ensimmäistä kertaa
 func _ready() -> void:
 	screen_size = get_viewport_rect().size
+	
+func start(pos):
+	position = pos
+	show()
+	$CollisionShape2D.disabled = false
 
 # Kutsutaan kerran per frame. 'delta' viittaa aikaan, joka on kulunut.
 func _process(delta):
