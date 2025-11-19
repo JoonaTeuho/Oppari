@@ -1,4 +1,5 @@
 extends Area2D
+signal hit
 
 @export var speed = 400 # Pelaajan liikkumisnopeus (pikseliä/s)
 var screen_size # Peliruudun koko
@@ -30,9 +31,7 @@ func _process(delta):
 	position += velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
 
-signal hit
-
-func _on_body_shape_entered(body):
+func _on_body_entered(_body):
 	hide() # Piilottaa pelaajan hahmon osumistilanteessa
 	hit.emit()
 	# Hahmo poistetaan käytöstä, jotta osumasignaali toimii vain kerran
