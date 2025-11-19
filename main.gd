@@ -3,28 +3,23 @@ extends Node
 @export var projectile_scene: PackedScene
 var score
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	new_game()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func _on_player_hit() -> void:
 	pass # Replace with function body.
 
 func game_over():
+	$Player.can_move = false
 	$ScoreTimer.stop()
 	$ProjectileTimer.stop()
+	$UI.show_game_over()
 
 func new_game():
+	$Player.show()
+	$Player.can_move = true
 	score = 0
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
+	$UI.update_score(score)
+	$UI.show_message("Get Ready")
 
 
 func _on_projectile_timer_timeout() -> void:
@@ -51,6 +46,7 @@ func _on_projectile_timer_timeout() -> void:
 
 func _on_score_timer_timeout() -> void:
 	score += 1
+	$UI.update_score(score)
 
 
 func _on_start_timer_timeout() -> void:
