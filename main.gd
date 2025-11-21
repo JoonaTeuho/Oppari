@@ -4,7 +4,7 @@ extends Node
 var score
 
 func _on_player_hit() -> void:
-	pass # Replace with function body.
+	game_over()
 
 func game_over():
 	$Player.can_move = false
@@ -52,5 +52,3 @@ func _on_score_timer_timeout() -> void:
 func _on_start_timer_timeout() -> void:
 	$ProjectileTimer.start()
 	$ScoreTimer.start()
-	
-	

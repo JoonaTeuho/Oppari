@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://m682mq2cjo0g"]
 
-[ext_resource type="Texture2D" uid="uid://bwc5qn5pdoywq" path="res://New Piskel-1.png (2).png" id="1_a85iw"]
+[ext_resource type="Texture2D" uid="uid://bwc5qn5pdoywq" path="res://Projectile.png" id="1_a85iw"]
 [ext_resource type="Script" uid="uid://6ihn1nbsrn4" path="res://projectile.gd" id="1_qxf0c"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qxf0c"]
