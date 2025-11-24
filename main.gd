@@ -23,6 +23,11 @@ func new_game():
 
 
 func _on_projectile_timer_timeout() -> void:
+	
+	if ($ProjectileTimer.wait_time >= 0.1):
+		$ProjectileTimer.wait_time = 1 - 0.01 * score 
+		print($ProjectileTimer.wait_time)
+	
 	# Luo uuden ammuksen skeneen
 	var projectile = projectile_scene.instantiate()
 
