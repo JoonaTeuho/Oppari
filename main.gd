@@ -2,9 +2,12 @@ extends Node
 
 @export var projectile_scene: PackedScene
 var score
+var HP
 
 func _on_player_hit() -> void:
-	game_over()
+	$UI.update_HP($Player.HP)
+	if ($Player.HP == 0):
+		game_over()
 
 func game_over():
 	$Player.can_move = false
@@ -16,9 +19,12 @@ func new_game():
 	$Player.show()
 	$Player.can_move = true
 	score = 0
+	$Player.HP = 3
+	HP = $Player.HP
 	$Player.start($StartPosition.position)
 	$StartTimer.start()
 	$UI.update_score(score)
+	$UI.update_HP(HP)
 	$UI.show_message("Get Ready")
 
 

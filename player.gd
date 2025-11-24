@@ -2,6 +2,7 @@ extends Area2D
 signal hit
 
 var can_move = false
+var HP = 3
 
 @export var speed = 400 # Pelaajan liikkumisnopeus (pikseliä/s)
 var screen_size # Peliruudun koko
@@ -37,7 +38,11 @@ func _process(delta):
 	position = position.clamp(Vector2.ZERO, screen_size)
 
 func _on_body_entered(_body):
-	hide() # Piilottaa pelaajan hahmon osumistilanteessa
+	HP = HP - 1
 	hit.emit()
-	# Hahmo poistetaan käytöstä, jotta osumasignaali toimii vain kerran
-	$CollisionShape2D.set_deferred("disabled", true)
+	_body.queue_free()
+	print(HP)
+	if (HP == 0):
+		hide() # Piilottaa pelaajan hahmon osumistilanteessa
+		# Hahmo poistetaan käytöstä, jotta osumasignaali toimii vain kerran
+		$CollisionShape2D.set_deferred("disabled", true)
