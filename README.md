@@ -1,6 +1,11 @@
 # Opinnäytetyö
 Tämä projekti on tuotettu osana opinnäytetyötä pelin kehittämisestä käyttäen Godot-pelimoottoria. Se on genreltään 'Bullet Hell' ja pelin tavoitteena on selvitä elossa mahdollisimman pitkään väistämällä ammuksia.
 
+# Asennusohjeet
+ - Lataa pelin 1.0 versio .zip teidostona <a href=https://github.com/JoonaTeuho/Oppari/releases>tästä linkistä</a>
+ - Avaa kansio
+ - Käynnistä peli Game.exe tiedostosta
+
 # Peliohjeet
  - Pelin avattua näet päävalikon, jossa on nappi, josta pelin voi aloittaa.
  - Pelin aikana tulee väistellä ammuksia, joita tulee joka suunasta.
